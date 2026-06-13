@@ -23,7 +23,19 @@ def run_backend():
 def run_frontend():
     try:
         logger.info("Starting frontend service...")
-        subprocess.run(["streamlit", "run", "app/frontend/ui.py"], check=True)
+        # subprocess.run(["streamlit", "run", "app/frontend/ui.py"], check=True)
+        subprocess.run(
+        [
+            "npm",
+            "run",
+            "dev",
+            "--",
+            "--host",
+            "0.0.0.0"
+        ],
+        cwd="app/frontend/react",
+        check=True
+    )
     except CustomException as e:
         logger.error("Problem with frontend service")
         raise CustomException("Failed to start frontend", e)
