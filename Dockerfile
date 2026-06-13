@@ -26,6 +26,6 @@ RUN npm install
 WORKDIR /app
 
 EXPOSE 9090
-EXPOSE 3000
+EXPOSE 5173
 
 CMD ["python", "app/main.py"]
